@@ -3,9 +3,12 @@ package com.example.bookstoreproject.activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,7 +34,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ivChat, ivFriends, ivContacts, ivSettings, ivCurrent;
     private TextView tvChat, tvFriends, tvContacts, tvSettings, tvCurrent;
 
+//    private FrameLayout main_content;
+
     private List<Fragment> fragments = new ArrayList<Fragment>();
+
+    //Fragment管理
+//    private FragmentManager fragmentManager;
+//    private Fragment01 fragment01;
+//    private Fragment02 fragment02;
+//    private Fragment03 fragment03;
+//    private Fragment04 fragment04;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,9 +69,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getFragmentManager(), fragments);
         viewPager.setAdapter(adapter);
 
+//        fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragment01 = new Fragment01();
+//        fragmentTransaction.add(R.id.main_content,fragment01);
+//        fragmentTransaction.commit();
+
     }
 
     private void initView() {
+
+//        main_content = (FrameLayout) findViewById(R.id.main_content);
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         llChat = (LinearLayout) findViewById(R.id.llChat);
@@ -113,8 +134,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
         private void changeTab(int id) {
+
             ivCurrent.setSelected(false);
             tvCurrent.setSelected(false);
+
+//            fragmentManager = getSupportFragmentManager();
+//            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            hideAllFragment(transaction);
+
+//            switch (id) {
+//                case R.id.llChat:
+//                    ivChat.setSelected(true);
+//                    ivCurrent = ivChat;
+//                    tvChat.setSelected(true);
+//                    tvCurrent = tvChat;
+//                    if (fragment01 == null){
+//                        fragment01 = new Fragment01();
+//                        transaction.add(R.id.main_content,fragment01);
+//                    }else {
+//                        transaction.show(fragment01);
+//                    }
+//                    break;
+//                case R.id.llFriends:
+//                    ivFriends.setSelected(true);
+//                    ivCurrent = ivFriends;
+//                    tvFriends.setSelected(true);
+//                    tvCurrent = tvFriends;
+//                    if (fragment02 == null){
+//                        fragment02 = new Fragment02();
+//                        transaction.add(R.id.main_content,fragment02);
+//                    }else {
+//                        transaction.show(fragment02);
+//                    }
+//                    break;
+//                case R.id.llContacts:
+//                    ivContacts.setSelected(true);
+//                    ivCurrent = ivContacts;
+//                    tvContacts.setSelected(true);
+//                    tvCurrent = tvContacts;
+//                    if (fragment03 == null){
+//                        fragment03 = new Fragment03();
+//                        transaction.add(R.id.main_content,fragment03);
+//                    }else {
+//                        transaction.show(fragment03);
+//                    }
+//                    break;
+//                case R.id.llSettings:
+//                    ivSettings.setSelected(true);
+//                    ivCurrent = ivSettings;
+//                    tvSettings.setSelected(true);
+//                    tvCurrent = tvSettings;
+//                    if (fragment04 == null){
+//                        fragment04 = new Fragment04();
+//                        transaction.add(R.id.main_content,fragment04);
+//                    }else {
+//                        transaction.show(fragment04);
+//                    }
+//                    break;
+//
+//            }
+//            transaction.commit();
             switch (id) {
                 case R.id.llChat:
                     viewPager.setCurrentItem(0);
@@ -148,6 +227,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tvSettings.setSelected(true);
                     tvCurrent = tvSettings;
                     break;
+
             }
         }
+
+        /**
+         * 隐藏所有Fragment
+         * */
+//    private void hideAllFragment(FragmentTransaction transaction) {
+//        if (fragment01 != null){
+//            transaction.hide(fragment01);
+//        }
+//        if (fragment02 != null){
+//            transaction.hide(fragment02);
+//        }
+//        if (fragment03 != null){
+//            transaction.hide(fragment03);
+//        }
+//        if (fragment04 != null){
+//            transaction.hide(fragment04);
+//        }
+//    }
 }

@@ -2,6 +2,7 @@ package com.example.bookstoreproject.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import com.example.bookstoreproject.R;
  * Created by ming on 2018/09/11.
  */
 
-public class Fragment03 extends android.app.Fragment{
+public class Fragment03 extends Fragment {
 
     @Nullable
     @Override
